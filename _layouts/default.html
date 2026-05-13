@@ -455,7 +455,7 @@
     // Sample / Paywall helpers
     function _sampleBounds(){
       const N=PAGES.length, L=Math.max(1, Math.min(SAMPLE_LEN, N));
-      return S.rtl ? {first:Math.max(N-L+1,1), last:N} : {first:1, last:L};
+      return S.rtl ? {first:Math.max(N-L+1,1), last:N} : {first:1, last:N};
     }
     function _isBoundaryPage(idx){ const b=_sampleBounds(); return S.rtl ? (idx===b.first) : (idx===b.last); }
     function _wouldGoPastSample(t){ const b=_sampleBounds(); return S.rtl ? (t<b.first) : (t>b.last); }
