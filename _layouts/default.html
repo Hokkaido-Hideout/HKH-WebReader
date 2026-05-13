@@ -529,10 +529,9 @@
       jmp.value = String(S.page);
       writeLink(); thumbsMark(); updateKPI();
 
-      if(S.continuous){ renderContinuous(); persist(); if(_isBoundaryPage(S.page)) showPaywall(); return; }
+      if(S.continuous){ renderContinuous(); persist(); return; }
 
       renderPaged(instant); preload(); persist();
-      if(_isBoundaryPage(S.page)) showPaywall();
     }
 
     function updateKPI(){ kpiP.textContent = `Page ${S.page}/${PAGES.length}`; kpiZ.textContent = `${Math.round(S.zoom*100)}%`; }
