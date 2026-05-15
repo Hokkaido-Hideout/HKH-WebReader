@@ -352,8 +352,6 @@
       restore();
       readLink();
       t.textContent = BOOK.title || "Comic Reader";
-      // Force Best(width) at startup
-      S.fit = "best"; S.bestStrategy = "width"; S.zoom = 1;
 
       rng.max = String(PAGES.length);
       thumbsBuild(); bind(); applyToggles();
@@ -445,7 +443,8 @@
       img.alt = `Page ${idx}`; img.src='';
       const I = new Image();
       I.decoding = 'async';
-      I.onload = ()=>{ img.src = src; fit(); };
+      img.onload = () => requestAnimationFrame(() => fit());
+      img.src = src;
       I.onerror = ()=>{ holder.dataset.e = '1';
         holder.querySelector('.err').innerHTML = `<div>Failed to load p.${idx}. <button class="btn" data-retry="${idx}">Retry</button></div>`;
       };
@@ -542,12 +541,18 @@
     function fit(){
       const vp = stage.getBoundingClientRect();
       const imgs = [iA, S.double ? iB : null].filter(Boolean);
-      let w=0,h=0;
-      imgs.forEach(im=>{ if(!im.naturalWidth) return; w += im.naturalWidth; h = Math.max(h, im.naturalHeight); });
+
+      if (!imgs.length || imgs.some(im => !im.complete || !im.naturalWidth)) {
+        return;
+      }
+
+      let w = 0, h = 0;
+      imgs.forEach(im => { w += im.naturalWidth; h = Math.max(h, im.naturalHeight); });
+
       const rotSwap = (S.rot % 180)!==0;
       const natW = rotSwap ? h : w, natH = rotSwap ? w : h;
-      const widthFit = vp.width / (natW || vp.width);
-      const heightFit= vp.height/ (natH || vp.height);
+      const widthFit = vp.width / natW;
+      const heightFit = vp.height / natH;
 
       let s = S.zoom;
       switch(S.fit){
@@ -564,6 +569,7 @@
         case 'orig':
         default: s = S.zoom; break;
       }
+
       S.zoom = s;
       pages.style.transform = `rotate(${S.rot}deg) scale(${s})`;
       updateKPI();
