@@ -22,6 +22,43 @@ footer .footer {
   }
 }
 
+/* Mobile platform compatibility */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+table {
+    display: block;
+    overflow-x: auto;
+    width: 100%;
+}
+
+/* Prevent giant fixed-width elements */
+img,
+canvas,
+svg,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+pre {
+    overflow-x: auto;
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+code {
+    word-break: break-word;
+}
+
 .main-content pre {
   font-family: 'VT323', monospace;
   font-size: 18px;
@@ -29,9 +66,12 @@ footer .footer {
 
 /* Add 10% horizontal margins to the main content */
 .main-content {
+  width: 100%;
+  max-width: 1200px;
+  padding: 16px;
+  margin: 0 auto;
   margin-left: 10%;
   margin-right: 10%;
-  max-width: 80%;
   padding-top: 50px; /* To avoid overlap */
 }
 
@@ -49,6 +89,17 @@ footer .footer {
   margin: 1em auto;
   max-width: 100%;
   height: auto;
+}
+
+/* comics rendering constraints */
+.page-image,
+.comic-page,
+.markdown-body img,
+main img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
 }
 
 .top-toolbar {
@@ -162,6 +213,24 @@ footer .footer {
   fill: #ccc;
 }
 
+.mermaid-zoom-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.mermaid {
+    min-width: 600px;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
 /* Brand text styling */
 .nav-brand {
   color: #00BFFF; /* DeepSkyBlue / Ocean Blue */
@@ -181,6 +250,63 @@ footer .footer {
 .nav-links a:hover {
   color: #FFCC66; /* Softer gold on hover */
   text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+
+    .nav-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .nav-left {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .nav-links {
+        width: 100%;
+        flex-direction: column;
+        gap: 8px;
+        padding: 0;
+        margin: 0;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .dropdown-content {
+        position: static;
+        width: 100%;
+    }
+
+    .search-wrapper {
+      width: 100%;
+      margin: auto;
+      max-width: 500px;
+    }
+
+    #search-box {
+        width: 100%;
+    }
+
+    .main-content {
+        padding: 12px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    pre {
+        font-size: 0.85rem;
+    }
 }
 
 /* Markdown headers: ocean blue like nav-brand */
