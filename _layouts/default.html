@@ -745,10 +745,11 @@
       }
     });
     stage.addEventListener('pointerup', e=>{ dragging=false; S.pointers.delete(e.pointerId); stage._pd=null; });
-    stage.addEventListener('dblclick', ()=>{
-      if(S.fit==='orig'){ S.fit='best'; }
-      else { S.fit='orig'; S.zoom=1; }
-      fit(); persist();
+    stage.addEventListener('dblclick', (e) => {
+      e.preventDefault();
+      const tgt = forwardTarget();
+      if (_wouldGoPastSample(tgt)) { showPaywall(); return; }
+      go(tgt);
     });
     stage.addEventListener('wheel', e=>{ if(e.ctrlKey){ e.preventDefault(); doZoom(e.deltaY>0 ? 1/1.1 : 1.1); } }, {passive:false});
 

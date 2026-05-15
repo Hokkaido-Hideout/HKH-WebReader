@@ -39,6 +39,10 @@ table {
     width: 100%;
 }
 
+.stage {
+  touch-action: manipulation;
+}
+
 /* Prevent giant fixed-width elements */
 img,
 canvas,
