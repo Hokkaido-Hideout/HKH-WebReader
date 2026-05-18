@@ -263,7 +263,7 @@
       <h2 style="margin:0 0 8px;font:700 28px/1.2 ui-sans-serif,system-ui">That’s the 10-page sample</h2>
       <p style="opacity:.9;margin:0 0 18px">Grab the full book here:</p>
       <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
-        <a id="cta-steam" href="#" rel="noopener" style="padding:12px 16px;border-radius:12px;background:#5560ff;color:white;text-decoration:none">Get it on Steam</a>
+        <a id="cta-steam" href="#" rel="noopener" style="padding:12px 16px;border-radius:12px;background:#5560ff;color:white;text-decoration:none">Get on Kickstarter</a>
         <a id="cta-amz" href="#" rel="noopener" style="padding:12px 16px;border-radius:12px;background:#0bb37b;color:#041015;text-decoration:none">Get it on Amazon</a>
       </div>
       <p style="opacity:.7;margin:14px 0 0;font-size:12px">Thanks for reading. Yes, I feed my family with this.</p>
@@ -273,12 +273,17 @@
   <!-- ====== EDIT ME: PAGES ====== -->
   <script>
     const PAGES = [
-      "https://www.dropbox.com/scl/fi/8cj3hs48bcw4zojombs1f/_COVER_.png?rlkey=uzggyz7cuzz4k8i6udyj8g4s9&st=ovvncoo3&raw=1",
-      "https://www.dropbox.com/scl/fi/ly4h34jvxx59qlij0lgm5/Page_1.png?rlkey=1wlliz7gg2jjt42gh5sakjz3l&st=f3y5sxum&raw=1",
-      "https://www.dropbox.com/scl/fi/6hathoea5xu7nw6c0qdp1/Page_2.png?rlkey=4jtrumlnzue02dq9dllg8pyr6&st=sc77xcck&raw=1",
-      "https://www.dropbox.com/scl/fi/5lrouobfyg5o93oehjllr/Page_3.png?rlkey=alnf1z19p3llnue8vofxyz92t&st=0yle1wcs&raw=1",
-      "https://www.dropbox.com/scl/fi/yywoj33djkaxbr7nazcw4/Page_4.png?rlkey=udep490jn2vwxmt73ghkk0r1b&st=c6m4dkxk&raw=1",
-      "https://www.dropbox.com/scl/fi/m31n8mpggfuju7kjc7ylx/Page_5.png?rlkey=bhnt2n786wb14s9utr1wz159b&st=g4iw5e6p&raw=1"
+      "https://www.dropbox.com/scl/fi/0pzoi535diu2ymovqblho/_COVER_.jpg?rlkey=fdw4psnerptpzlcvzgyg808ry&st=mjes266a&raw=1",
+      "https://www.dropbox.com/scl/fi/iy5w4w6ldac0pchak028r/Page_1F.jpg?rlkey=6fkl3ht1les3dz5ncux6sf0r6&st=oi1e3x0p&raw=1",
+      "https://www.dropbox.com/scl/fi/v2dfd0velz47o5onq4vbr/Page_2F.jpg?rlkey=ax3f26k38q5y7603cp3u8ja0j&st=1p594e09&raw=1",
+      "https://www.dropbox.com/scl/fi/8u93t3oo6p6vldyi7rs4m/Page_3F.jpg?rlkey=yn8w2tyc6yav47ekd94agvgte&st=7x2f3wb0&raw=1",
+      "https://www.dropbox.com/scl/fi/5yixu0b765d3rnfmi75dw/Page_4F.jpg?rlkey=cqekxf77m753o46katepq604g&st=3xdafbua&raw=1",
+      "https://www.dropbox.com/scl/fi/0twlftccehvq6gjcz1656/Page_5F.jpg?rlkey=wcv358vhf85eu1xpnye7r4i1e&st=b931zksx&raw=1",
+      "https://www.dropbox.com/scl/fi/8kkjzpqinieo4xqweu038/Page_6F.jpg?rlkey=gq3q5mpapg06ux1b7ejbek93y&st=mnf7yub7&raw=1",
+      "https://www.dropbox.com/scl/fi/v10ge0jvowvgu79jlpo3r/Page_7F.jpg?rlkey=2fr6gjwqz1tpyqcvuepi3anx6&st=ohidsvws&raw=1",
+      "https://www.dropbox.com/scl/fi/3drmtuqp0d94t2nh99rqo/Page_8F.jpg?rlkey=xfv67a761vuqcpxvz77bk2ntx&st=5oiyawos&raw=1",
+      "https://www.dropbox.com/scl/fi/pyj01l34o9e6uu5uwedqv/Page_9F.jpg?rlkey=a4pafq5itk9eqhoy9iacgo7jj&st=cuizeikj&raw=1",
+      "https://www.dropbox.com/scl/fi/3y35gxwkwculanf5z5kv9/Page_10F.jpg?rlkey=whp0seknuhq0dlcmzgiyeuvt0&st=d701belc&raw=1"
     ];
     const BOOK = { title:"UNICODE - REturN NuLL", readingDirection:"ltr", startPage:1 };
   </script>
@@ -300,8 +305,8 @@
 
     // PAYWALL config
     const SAMPLE_LEN = 10;
-    const STEAM_URL = "https://store.steampowered.com/app/APPID?utm_source=reader&utm_medium=sample&utm_campaign=gate";
-    const AMZ_URL   = "https://www.amazon.com/dp/ASIN?utm_source=reader&utm_medium=sample&utm_campaign=gate";
+    const STEAM_URL = "https://www.kickstarter.com/projects/xavier-hokkaido/unicode";
+    const AMZ_URL   = "https://www.amazon.com/dp/B0GZ12KXX5";
     window.PAYWALL_SHOWN ??= false;
     // Assign CTA links
     const _steam = $("cta-steam"); if (_steam) _steam.href = STEAM_URL;
